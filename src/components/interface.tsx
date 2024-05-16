@@ -1,5 +1,5 @@
 interface Jogos {
-    id:number;
+    id: number;
     nome: string;
     preco: number;
     descricao: string;
