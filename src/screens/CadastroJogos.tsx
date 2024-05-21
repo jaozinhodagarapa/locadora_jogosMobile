@@ -1,9 +1,9 @@
+
 import axios from "axios";
 import React, { useState } from "react";
 import { ScrollView, StatusBar, StyleSheet, TextInput, TouchableOpacity, } from "react-native";
 import { Image, View, Text } from "react-native-animatable";
 import Footer from "../components/Footer";
-
 
 function CadastroJogos(): React.JSX.Element {
     const [jogos, setJogos] = useState<Jogos[]>([]);
@@ -68,7 +68,7 @@ function CadastroJogos(): React.JSX.Element {
             formData.append('distribuidora', distribuidora);
             formData.append('categoria', categoria);
 
-            const response = await axios.post('http://10.137.11.208:8000/api/register/games', formData, {
+            const response = await axios.post('http://10.137.11.207:8000/api/register/games', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -90,6 +90,7 @@ function CadastroJogos(): React.JSX.Element {
             <ScrollView showsVerticalScrollIndicator={false}>
             <StatusBar backgroundColor={'white'}></StatusBar>
             <View style={styles.header}>
+                <Image style={styles.imagem} resizeMode="contain" source={require('../assets/imagem/logos.png')}></Image>
             </View>
 
             <View style={styles.form}>
@@ -174,9 +175,7 @@ function CadastroJogos(): React.JSX.Element {
             <TouchableOpacity style={styles.button} onPress={cadastrarJogos}>
                 <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
-            <View style={styles.footer}>
-
-            </View>
+            <Footer/>
             </ScrollView>
             </View>
         
@@ -186,20 +185,20 @@ function CadastroJogos(): React.JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2E8B57'
+        backgroundColor: '#90EE90'
     },
     header: {
-        backgroundColor: '#98FB98',
+        backgroundColor: '#8FBC8F',
         alignItems: 'center',
         paddingVertical: 100,
         borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 90,
+        borderBottomRightRadius: 100,
         height: 10,
-        marginTop: -40
+        marginTop: -35
     },
     footer: {
         paddingVertical: 50,
-        backgroundColor: '#98FB98',   
+        backgroundColor: '#98FB98',
         marginTop: 20,
         alignItems: 'center',
         borderTopRightRadius: 40,
@@ -225,13 +224,12 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     imagem: {
-        height: 100,
-        width: 100,
+        height: 150,
+        width: 150,
         marginTop: -60,
         marginRight: 15,
         borderRadius: 50,
-        borderWidth: 5,
-        borderColor: '#3CB371'
+        marginLeft: -20
     },
     button: {
         backgroundColor: "white",
@@ -244,7 +242,7 @@ const styles = StyleSheet.create({
         marginLeft: 65,
     },
     buttonText: {
-        color: "#3CB371",
+        color: "#2E8B57",
         fontWeight: "bold",
         textAlign: "center",
     },
