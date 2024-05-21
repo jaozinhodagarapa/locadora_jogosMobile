@@ -68,7 +68,7 @@ function CadastroJogos(): React.JSX.Element {
             formData.append('distribuidora', distribuidora);
             formData.append('categoria', categoria);
 
-            const response = await axios.post('http://10.137.11.207:8000/api/register/games', formData, {
+            const response = await axios.post('http://10.137.11.208:8000/api/register/games', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -186,10 +186,10 @@ function CadastroJogos(): React.JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3CB371'
+        backgroundColor: '#2E8B57'
     },
     header: {
-        backgroundColor: 'white',
+        backgroundColor: '#98FB98',
         alignItems: 'center',
         paddingVertical: 100,
         borderBottomLeftRadius: 0,
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         paddingVertical: 50,
-        backgroundColor: 'white',
+        backgroundColor: '#98FB98',   
         marginTop: 20,
         alignItems: 'center',
         borderTopRightRadius: 40,
