@@ -4,7 +4,7 @@ import {  FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity } from 
 import { View } from "react-native-animatable";
 import Footer from "../components/Footer";
 
-function ListagemJogos(): React.JSX.Element {
+function JogosListagem(): React.JSX.Element {
     const [jogos, setJogos] = useState<Jogos[]>([]);
     const [filteredJogos, setFilteredJogos] = useState<Jogos[]>(jogos);
 
@@ -30,7 +30,7 @@ function ListagemJogos(): React.JSX.Element {
 
     const handleDelete = async (id: number) => {
         try {
-          await axios.delete(`http://10.137.11.207:8000/api/delete/game/${id}`);
+          await axios.delete(`http://10.137.11.207:8000/api/delete/games/${id}`);
           setJogos(jogos.filter((jogo) => jogo.id !== id));
           setFilteredJogos(filteredJogos.filter((jogo) => jogo.id !== id));
         } catch (error) {
@@ -145,4 +145,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default ListagemJogos;
+export default JogosListagem;
