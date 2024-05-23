@@ -11,7 +11,7 @@ function JogosListagem(): React.JSX.Element {
     useEffect(() => {
         const fetchProdutos = async () => {
             try {
-                const response = await axios.get('http://10.137.11.207:8000/api/return/all/games');
+                const response = await axios.get('http://10.137.11.208:8000/api/return/all/games');
                 if (Array.isArray(response.data.data)) {
                   setJogos(response.data.data);
                 } else {
@@ -30,7 +30,7 @@ function JogosListagem(): React.JSX.Element {
 
     const handleDelete = async (id: number) => {
         try {
-          await axios.delete(`http://10.137.11.207:8000/api/delete/games/${id}`);
+          await axios.delete(`http://10.137.11.208:8000/api/delete/games/${id}`);
           setJogos(jogos.filter((jogo) => jogo.id !== id));
           setFilteredJogos(filteredJogos.filter((jogo) => jogo.id !== id));
         } catch (error) {
