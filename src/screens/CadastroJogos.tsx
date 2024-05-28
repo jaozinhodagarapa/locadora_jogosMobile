@@ -1,8 +1,10 @@
+
 import axios from "axios";
 import React, { useState } from "react";
 import { ScrollView, StatusBar, StyleSheet, TextInput, TouchableOpacity, } from "react-native";
 import { Image, View, Text } from "react-native-animatable";
 import Footer from "../components/Footer";
+
 
 function CadastroJogos(): React.JSX.Element {
     const [jogos, setJogos] = useState<Jogos[]>([]);
@@ -74,37 +76,39 @@ function CadastroJogos(): React.JSX.Element {
       };
     
 
-    const cadastrarJogos = async () => {
-        if (validateForm()){    
-        try {
-
+      const cadastrarJogos = async () => {
+        if (validateForm()) {
+          try {
             const formData = new FormData();
             formData.append('nome', nome);
-            formData.append('preco',preco);
+            formData.append('preco', preco);
             formData.append('descricao', descricao);
             formData.append('classificacao', classificacao);
             formData.append('plataformas', plataformas);
             formData.append('desenvolvedor', desenvolvedor);
             formData.append('distribuidora', distribuidora);
             formData.append('categoria', categoria);
-
+      
+            console.log(formData)
+      
             const response = await axios.post('http://10.137.11.208:8000/api/register/games', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                  'Content-Type': 'multipart/form-data'
                 }
-            });
-            console.log(response)
-        } catch (error) {
-            if (error.response && error.response.data && error.response.data.errors){
+              });
+              console.log(response)
+            } catch (error) {
+              if (error.response && error.response.data && error.response.data.errors) {
                 setErrors(error.response.data.errors);
-            } else{
+              } else {
                 console.log(error);
+              }
             }
+          }
+      
         }
-    }
-
-}
-
+      
+      
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -205,10 +209,10 @@ function CadastroJogos(): React.JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#484538'
+        backgroundColor: 'black'
     },
     header: {
-        backgroundColor: '#CAD49D',
+        backgroundColor: '#067451',
         alignItems: 'center',
         paddingVertical: 100,
         borderBottomLeftRadius: 0,

@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import React, { useState } from "react";
 import { ScrollView, StatusBar, StyleSheet, TextInput, TouchableOpacity, } from "react-native";
@@ -5,7 +6,7 @@ import { Image, View, Text } from "react-native-animatable";
 import Footer from "../components/Footer";
 
 
-function AtualizarJogos(): React.JSX.Element {
+function UpdateJogos(): React.JSX.Element {
     const [jogos, setJogos] = useState<Jogos[]>([]);
     const [id, setId] = useState<string>("");
     const [nome, setNome] = useState<string>("");
@@ -92,7 +93,7 @@ function AtualizarJogos(): React.JSX.Element {
 
             console.log(formData)
 
-            const response = await axios.put("http://10.137.11.208:8000/api/updates/games", formData);
+            const response = await axios.put("http://10.137.11.208:8000/api/update/games", formData);
          console.log(response.data)
         } catch (error) {
             if (error.response && error.response.data && error.response.data.errors){
@@ -280,4 +281,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default AtualizarJogos;
+export default UpdateJogos;
