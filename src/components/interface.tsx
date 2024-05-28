@@ -1,7 +1,7 @@
-interface Jogos {
+interface Jogos{
     id: number;
     nome: string;
-    preco: number;
+    preco: string;
     descricao: string;
     classificacao: string;
     plataformas: string;
