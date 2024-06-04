@@ -152,7 +152,7 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
             source={require('../assets/images/documento.png')}
             style={styles.footerIcon}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> 
 
         <TouchableOpacity onPress={() => navigation.navigate('Listagem')}>
           <Image 
