@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, StatusBar, StyleSheet } from 'react-native';
 import axios from 'axios';
@@ -20,6 +19,7 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
   const [distribuidora, setDistribuidora] = useState(jogo.distribuidora ?? '');
   const [categoria, setCategoria] = useState(jogo.categoria ?? '');
   const [error, setError] = useState(null); // estado para armazenar erros
+  
 
   useEffect(() => {
     // lidar com a atualização do estado quando o componente é montado ou desmontado
@@ -43,7 +43,7 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
     };
     
     try {
-      const response = await axios.put(`http://10.137.11.206:8000/api/update/game/${jogo.id}`, data);
+      const response = await axios.put(`http://10.137.11.208:8000/api/update/game/${jogo.id}`, data);
   
       // Navegar para a página de listagem após a atualização ser concluída com sucesso
       navigation.navigate('Listagem');

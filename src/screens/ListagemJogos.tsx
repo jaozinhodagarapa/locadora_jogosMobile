@@ -31,6 +31,7 @@ function ListagemJogos(): React.JSX.Element {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredJogos, setFilteredJogos] = useState<Jogos[]>(jogos);
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,6 +75,7 @@ function ListagemJogos(): React.JSX.Element {
     }
   };
 
+
   const renderItem = ({ item }: { item: Jogos }) => {
     return (
       <View style={styles.jogoContainer}>
@@ -89,8 +91,8 @@ function ListagemJogos(): React.JSX.Element {
           <TouchableOpacity style={styles.botaoDeletar} onPress={() => handleDelete(item.id)}>
             <Text style={styles.botaoText}>Deletar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.botaoEditar} onPress={() => navigation.navigate('Editar')}>
-            <Text style={styles.botaoText}>Editar</Text>
+          <TouchableOpacity style={styles.botaoEditar} onPress={() => navigation.navigate('Editar', { jogo: item })}>
+  <Text style={styles.botaoText}>Editar</Text>
           </TouchableOpacity>
         </View>
       </View>

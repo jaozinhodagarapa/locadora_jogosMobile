@@ -107,7 +107,7 @@ function CadastroJogos(): React.JSX.Element {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-    <StatusBar barStyle="dark-content" backgroundColor={'#fff'}></StatusBar>
+    <StatusBar barStyle="dark-content" backgroundColor={'#D9D9D9'}></StatusBar>
         <View style={styles.header}>
           <Image style={styles.imagem} source={require('../assets/images/logo.png')}></Image>
         </View>
