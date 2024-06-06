@@ -90,7 +90,7 @@ function CadastroJogos(): React.JSX.Element {
   
         console.log('FormData:', formData);
   
-        const response = await axios.post('http://10.137.11.206:8000/api/register/games', formData, {
+        const response = await axios.post('http://10.137.11.208:8000/api/register/games', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
