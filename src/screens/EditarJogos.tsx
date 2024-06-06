@@ -44,6 +44,19 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
     let hasErrors = false;
     const newErrors = {};
 
+    // Verificar se o nome do jogo já existe
+    const response = await axios.get(`http://10.137.11.208:8000/api/check/unique`, {
+      params: {
+        nome: nome,
+        id: jogo.id // ignorar o jogo que está sendo editado
+      }
+    });
+
+    if (!response.data.status) {
+      newErrors.nome = response.data.message;
+      hasErrors = true;
+    }
+
     if (!nome) {
       newErrors.nome = "O campo nome é obrigatório"
       hasErrors = true;
@@ -91,7 +104,6 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
       newErrors.desenvolvedor = "O campo desenvolvedor deve ter entre 2 e 120 caracteres"
       hasErrors = true;
     }
-
     if (!distribuidora) {
       newErrors.distribuidora = "O campo distribuidora é obrigatório"
       hasErrors = true;
@@ -263,8 +275,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   footerIcon: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
   },
   form: {
     width: 360,
