@@ -48,7 +48,7 @@ const EditarJogos: React.FC<Props> = ({ route }) => {
     const response = await axios.get(`http://10.137.11.208:8000/api/check/unique`, {
       params: {
         nome: nome,
-        id: jogo.id // ignorar o jogo que está sendo editado
+        id: jogo.id 
       }
     });
 
